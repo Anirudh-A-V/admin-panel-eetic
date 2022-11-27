@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Dashboard, AddCA, EditCA, CAList, Profile, Login } from './pages';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/add" exact component={AddCA} />
+          <Route path="/edit/:id" exact component={EditCA} />
+          <Route path="/list" exact component={CAList} />
+          <Route path="/profile" exact component={Profile} />
+          <Route path="/login" exact component={Login} />
+          <Route path="*" component={() => "404 NOT FOUND"} />
+        </Switch>
+      </Router>
     </div>
   );
 }
