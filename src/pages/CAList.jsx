@@ -1,9 +1,12 @@
 import React from 'react'
-
+import { Sidebar } from '../components'
+import AppWrap from "../containers/Layout"
 const CAList = () => {
   return (
-    <div>CAList</div>
+    <div>
+        CAList
+    </div>
   )
 }
 
-export default CAList
+export default AppWrap(CAList)
