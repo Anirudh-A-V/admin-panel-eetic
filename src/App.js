@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Dashboard, AddCA, EditCA, CAList, Profile, Login } from './pages';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        <Routes>
           <Route path="/" exact component={Dashboard} />
           <Route path="/add" exact component={AddCA} />
           <Route path="/edit/:id" exact component={EditCA} />
@@ -13,7 +13,7 @@ function App() {
           <Route path="/profile" exact component={Profile} />
           <Route path="/login" exact component={Login} />
           <Route path="*" component={() => "404 NOT FOUND"} />
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
