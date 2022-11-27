@@ -6,13 +6,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" exact component={Dashboard} />
-          <Route path="/add" exact component={AddCA} />
-          <Route path="/edit/:id" exact component={EditCA} />
-          <Route path="/list" exact component={CAList} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/login" exact component={Login} />
-          <Route path="*" component={() => "404 NOT FOUND"} />
+          <Route path="/" exact element={<Dashboard />} />
+          <Route path="/add" element={<AddCA />} />
+          <Route path="/edit/:id" element={<EditCA />} />
+          <Route path="/list" element={<CAList />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
     </div>
