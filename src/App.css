@@ -8,7 +8,7 @@
 .shapes:before,
 .shapes:after {
     content: "";
-    background: #ea580c;
+    background: #0c43ea;
     transform-origin: left;
     animation: shapes-0fdvou 1.6s infinite;
 }
