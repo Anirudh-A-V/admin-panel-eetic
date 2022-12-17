@@ -5,7 +5,7 @@ import { Dashboard, AddCA, EditCA, CAList, Profile, Login } from './pages';
 function App() {
   return (
     <div className="App flex flex-row">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Router>
         <Routes>
           <Route path="/" exact element={<Dashboard />} />
