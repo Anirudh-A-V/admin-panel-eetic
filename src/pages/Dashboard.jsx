@@ -5,6 +5,8 @@ import { db } from "../firebase/config"
 import { collection, getDocs } from "firebase/firestore"
 import { auth } from "../firebase/config"
 import { onAuthStateChanged } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
+
 
 const Dashboard = () => {
 
@@ -30,10 +32,13 @@ const Dashboard = () => {
 
   // console.log(docs)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
-        window.location.href = '/login'
+        // window.location.href = '/login'
+        navigate('/login')
       }
     })
   }, [])
