@@ -10,4 +10,4 @@ const Dashboard = () => {
   )
 }
 
-export default AppWrap(Dashboard)
+export default Dashboard

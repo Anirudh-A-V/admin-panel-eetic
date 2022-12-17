@@ -10,4 +10,4 @@ const Profile = () => {
   )
 }
 
-export default AppWrap(Profile)
+export default Profile
