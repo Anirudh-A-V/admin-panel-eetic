@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { db } from '../firebase/config'
 import { collection, getDocs } from 'firebase/firestore'
 import '../App.css'
+import AppWrap from '../containers/Layout'
 
 const CAList = () => {
     const [docs, setDocs] = useState([])
@@ -93,4 +94,4 @@ const CAList = () => {
     )
 }
 
-export default CAList
+export default AppWrap(CAList)

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { db } from '../firebase/config'
 import { collection, getDocs, updateDoc, doc, deleteDoc } from 'firebase/firestore'
+import AppWrap from '../containers/Layout'
 // Component to edit the details of a Campus Ambassador using firefox
 
 const EditCA = () => {
@@ -164,4 +165,4 @@ const EditCA = () => {
   )
 }
 
-export default EditCA
+export default AppWrap(EditCA)

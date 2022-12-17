@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { db } from '../firebase/config'
 import { collection, addDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import AppWrap from '../containers/Layout'
 
 const AddCA = () => {
   // const [doc, setDoc] = useState({
@@ -141,4 +142,4 @@ const AddCA = () => {
   )
 }
 
-export default AddCA
+export default AppWrap(AddCA)
