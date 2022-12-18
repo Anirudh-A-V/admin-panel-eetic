@@ -16,10 +16,10 @@ const Profile = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user)
-        console.log(user)
         setLoading(false)
       } else {
-        setUser({})
+        // console.log('No user')
+        Navigate('/login')
         setLoading(false)
       }
     })
@@ -30,9 +30,9 @@ const Profile = () => {
     await signOut(auth)
       .catch((err) => {
         setError(err.message)
+        console.log(err.message)
         setLoading(false)
       })
-
       Navigate('/login')
   }
 

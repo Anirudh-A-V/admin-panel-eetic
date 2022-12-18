@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import { db } from '../firebase/config'
+import { useState, useEffect } from 'react'
+import { db, auth } from '../firebase/config'
 import { collection, addDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import AppWrap from '../containers/Layout'
+import { onAuthStateChanged } from 'firebase/auth'
 
 const AddCA = () => {
   // const [doc, setDoc] = useState({
@@ -63,8 +64,16 @@ const AddCA = () => {
     addCA()
     e.preventDefault()
     navigate('/list')
-
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // window.location.href = '/login'
+        navigate('/login')
+      }
+    })
+  }, [])
 
 
 

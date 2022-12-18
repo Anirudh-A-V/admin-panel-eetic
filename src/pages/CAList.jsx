@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Header, Sidebar } from '../components'
 import { Link } from 'react-router-dom'
-import { db } from '../firebase/config'
+import { db, auth } from '../firebase/config'
 import { collection, getDocs } from 'firebase/firestore'
+import { onAuthStateChanged } from 'firebase/auth'
 import '../App.css'
 import AppWrap from '../containers/Layout'
+import { useNavigate } from 'react-router-dom'
 
 const CAList = () => {
     const [docs, setDocs] = useState([])
@@ -13,21 +15,33 @@ const CAList = () => {
 
     const caCollectionRef = collection(db, 'ca')
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         const getCA = async () => {
             const data = await getDocs(caCollectionRef)
                 .catch((err) => {
                     setError(err.message)
+                    console.log("Data Fetching - " + err.message)
                     setLoading(false)
                 })
-            console.log(data)
+            // console.log(data)
             setDocs(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
             setLoading(false)
         }
-        getCA()
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // window.location.href = '/login'
+                navigate('/login')
+            } else {
+                getCA()
+            }
+        })
+
+        
     }, [])
 
-    console.log(docs)
+    // console.log(docs)
 
     if (loading) {
         return (
